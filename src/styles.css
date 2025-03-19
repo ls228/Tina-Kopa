@@ -2,36 +2,115 @@ html, body {
     background-color: black;
     color: white;
     overflow-x: hidden;
+    overflow-y: auto;
     scroll-behavior: smooth;
     font-family: Helvetica, sans-serif;
+    overscroll-behavior: none;
 }
 
 /* Two-column layout */
 .container {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 70vh; /* Adapt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto; /* Center the content horizontally */
+    justify-content: center;
+    max-width: 1100px;
+    z-index: 1;
+    margin: 10px;
+    
+}
+
+/* Section with a black background */
+.black-section {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    min-height: auto;
+    flex-grow: 0;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: -1; /* Hintergrund bleibt unter dem Text */
+}
+
+.landing-page {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    margin-top: 10%;
+}
+
+.text-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
 }
 
 .image-content {
     flex: 1;
-    max-width: 40%;
+    max-width: 35%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
 }
 
 .text-content {
     flex: 1;
-    max-width: 55%;
+    max-width: 60%;
 }
 
-/* Image Styling */
+section {
+    text-align: left;
+    padding: 10px 40px;
+}
+
+.section-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    max-width: 1100px;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.contact-text{
+    min-width: 300px;
+    width: 1100px;
+    max-width: 1100px;
+}
+
 .animated-image {
     max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 500px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.image-container {
+    max-width: 350px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Contact Button */
@@ -54,34 +133,35 @@ html, body {
     transform: scale(1.05);
 }
 
-
-section {
-    text-align: left;
-    padding: 10px 40px;
+.privacy-policy {
+    align-items: center;
+    justify-content: center;
+    margin: 120px 40px;
+    max-width: 1200px;
 }
 
-.about-text{
-    min-width: 300px;;
+.privacy-policy-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
-
-.about-ramus-text {
-    max-width: 800px;
-}
-
-@media screen and (max-width: 1024px) {
-  
-}
-
 
 
 /* 🖥️ Responsive: Mobile Layout (Stacked) */
 @media screen and (max-width: 768px) {
+
+    .landing-page {
+        height: 100%;
+        margin-top: 0;
+    }
+    
     .container {
         flex-direction: column;
         height: auto;
-        padding: 0px;
         max-width: 100%;
-        margin-top: 160px;
+        margin: 120px 0px 0px;
+
     }
 
     .image-content {
